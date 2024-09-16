@@ -13,7 +13,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html>
       <body className="bg-[#F6F8FA]">
         <header className="fixed top-0 left-0 right-0 z-50 bg-white rounded-b-3xl shadow-lg">
           <Header />

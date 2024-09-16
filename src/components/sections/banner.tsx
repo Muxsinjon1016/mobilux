@@ -10,7 +10,7 @@ export const Banner = async () => {
   const data = await getBanners();
 
   return (
-    <div className="container mx-auto">
+    <div className="container flex items-center justify-end">
       <div>
         <Carousel
           opts={{
@@ -22,15 +22,15 @@ export const Banner = async () => {
           //     delay: 3000,
           //   }),
           // ]}
-          className="relative "
+          className="relative max-w-[1000px] xl:max-w-[1100px]"
         >
           <CarouselContent className="flex">
             {data?.map((banner) => (
-              <CarouselItem key={banner.id} className="h-auto lg:w-[1200px]">
+              <CarouselItem key={banner.id} className="h-auto ">
                 <img
                   src={banner.img}
                   alt="banner image"
-                  className="rounded-12 lg:w-[1086px] ml-auto overflow-hidden h-auto object-cover"
+                  className="rounded-12 lg:max-w-[1086px] ml-auto overflow-hidden h-auto object-cover"
                 />
               </CarouselItem>
             ))}

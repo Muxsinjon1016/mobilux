@@ -1,8 +1,8 @@
-import MainPage from "./(pages)/page";
+import MainPage from "./(pages)/home";
 
 export default function Home() {
   return (
-    <div className="mt-[100px]">
+    <div>
       <MainPage />
     </div>
   );

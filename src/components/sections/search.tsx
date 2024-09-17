@@ -59,7 +59,7 @@ export const Search = () => {
             placeholder="Search"
             value={searchTerm}
             onChange={handleSearchChange}
-            onKeyDown={(e) => e.key === "Enter" && handleSearch()} // Trigger search on 'Enter' key
+            onKeyDown={(e) => e.key === "Enter" && handleSearch()}
           />
           <Button
             className="flex items-center gap-2 rounded-none"
@@ -71,7 +71,7 @@ export const Search = () => {
           </Button>
         </div>
         {results.length > 0 && (
-          <div className="absolute z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-[400px] overflow-y-auto custom-scrollbar">
+          <div className="absolute z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-[400px] overflow-y-auto custom-scrollbarr">
             <ul>
               {results.map((result) => (
                 <Link
@@ -81,7 +81,7 @@ export const Search = () => {
                 >
                   <li
                     className="p-2 border-b flex items-center gap-5 border-gray-200 hover:bg-gray-100 cursor-pointer"
-                    onClick={handleResultClick} // Reset search and close box on click
+                    onClick={handleResultClick}
                   >
                     <img
                       className="w-14 h-14"

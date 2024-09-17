@@ -86,14 +86,24 @@ body {
 }
 
 .custom-scrollbar::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.custom-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.custom-scrollbarr::-webkit-scrollbar {
   width: 8px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-thumb {
+.custom-scrollbarr::-webkit-scrollbar-thumb {
   background-color: #34d399;
   border-radius: 4px;
 }
 
-.custom-scrollbar::-webkit-scrollbar-track {
+.custom-scrollbarr::-webkit-scrollbar-track {
   background: #f7f7f7;
 }

@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 import Header from "@/layout/header";
+import Footer from "@/layout/footer";
 
 export const metadata: Metadata = {
   title: "mobilux",
@@ -19,7 +20,9 @@ export default function RootLayout({
           <Header />
         </header>
         <main>{children}</main>
-        <footer></footer>
+        <footer>
+          <Footer />
+        </footer>
       </body>
     </html>
   );

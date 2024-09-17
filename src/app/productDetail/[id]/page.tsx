@@ -1,33 +1,22 @@
 import { Button } from "@/components/ui/button";
 import { NextPage } from "next";
-import { productTypes } from "@/services/types/productTypes";
 import { MdOutlineAddShoppingCart } from "react-icons/md";
+import { getProductDetail } from "@/services/query/getCategories";
 
 interface CatalogProps {
   params: { id: any };
 }
 
-const url = process.env.APP_URL;
-
 const productDetails: NextPage<CatalogProps> = async ({ params }) => {
-  const GetItem = async (): Promise<productTypes[]> => {
-    try {
-      const res = await fetch(`${url}/${params.id}`);
-      const data = res.json();
-      return data;
-    } catch (error) {
-      const err = (error as Error).message;
-      throw new Error(err);
-    }
-  };
-
-  const items = await GetItem();
+  const items = await getProductDetail(params);
+  console.log(items);
+  
 
   return (
     <>
       <div className="lg:flex lg:items-center container lg:justify-end">
         productDetails page here
-        <div className="flex flex-wrap justify-evenly lg:max-w-[1086px] gap-2 my-[120px]">
+        {/* <div className="flex flex-wrap justify-evenly lg:max-w-[1086px] gap-2 my-[120px]">
           {items.map((item) => (
             <div
               key={item.id}
@@ -51,7 +40,7 @@ const productDetails: NextPage<CatalogProps> = async ({ params }) => {
               </Button>
             </div>
           ))}
-        </div>
+        </div> */}
       </div>
     </>
   );

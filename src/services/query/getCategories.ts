@@ -31,8 +31,9 @@ export const getProductDetail = async (
   params: any
 ): Promise<productTypes[]> => {
   try {
-    const res = await fetch(`${url}/${params.id}`);
+    const res = await fetch(`${url}/all?id=${params.id}`);
     const data = res.json();
+
     return data;
   } catch (error) {
     const err = (error as Error).message;

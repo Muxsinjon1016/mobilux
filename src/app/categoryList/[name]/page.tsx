@@ -6,15 +6,11 @@ import { getItem } from "@/services/query/getCategories";
 import Link from "next/link";
 
 interface CatalogProps {
-  params: { name: string };
+  params: { name: string; brand: string };
 }
-
-
 
 const CatalogDetail: NextPage<CatalogProps> = async ({ params }) => {
   const items = await getItem(params.name);
-  console.log(items);
-  
 
   return (
     <>

@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 export const Footer = () => {
   return (
@@ -7,16 +8,30 @@ export const Footer = () => {
         <div className="container">
           <ul className="flex items-start justify-between flex-wrap">
             <li>
-              <img className="mb-6 cursor-pointer" src="logo.svg" alt="logo" />
+              <Image
+                className="w-[100px] cursor-pointer lg:w-[116px]"
+                width={100}
+                height={28}
+                src="/logo.svg"
+                alt="logo"
+              />{" "}
               <p className="text-xl font-semibold">Mobilux © 2024</p>
               <p className="mb-4">Barcha huquqlar kafolatlangan</p>
               <div className="flex items-center gap-3">
-                <img
-                  className="cursor-pointer"
-                  src="googlePlay.svg"
+                <Image
+                  className="w-[100px] cursor-pointer lg:w-[116px]"
+                  width={100}
+                  height={28}
+                  src="/googlePlay.svg"
                   alt="img"
                 />
-                <img className="cursor-pointer" src="appStore.svg" alt="img" />
+                <Image
+                  className="w-[100px] cursor-pointer lg:w-[116px]"
+                  width={100}
+                  height={28}
+                  src="/appStore.svg"
+                  alt="img"
+                />
               </div>
             </li>
             <li className="mt-10 lg:mt-0">

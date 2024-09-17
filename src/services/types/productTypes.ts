@@ -1,6 +1,7 @@
 export interface productTypes {
   img?: string;
   title?: string;
+  rame?: any;
   name?: string;
   brand?: string;
   price?: string;
@@ -12,4 +13,11 @@ export interface productTypes {
   memory?: string;
   weight?: string;
   id?: number;
+  details?: {
+    display?: string;
+    frequency?: string;
+    weight?: string;
+    security?: string;
+    diagonal?: string;
+  };
 }

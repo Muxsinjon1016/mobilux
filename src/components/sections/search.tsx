@@ -8,6 +8,7 @@ import { FaSearch } from "react-icons/fa";
 import { useDebounce } from "@/hooks/useDebaunce";
 import { getSearch } from "@/services/query/getSearch";
 import { productTypes } from "@/services/types/productTypes";
+import Link from "next/link";
 
 export const Search = () => {
   const [searchTerm, setSearchTerm] = useState("");
@@ -42,6 +43,11 @@ export const Search = () => {
     }
   };
 
+  const handleResultClick = () => {
+    setSearchTerm("");
+    setResults([]);
+  };
+
   return (
     <div className="relative">
       <div className="rounded-[5px] hidden lg:block overflow-hidden border-2 bg-[#f7f7f7] border-primaryColor">
@@ -65,15 +71,26 @@ export const Search = () => {
           </Button>
         </div>
         {results.length > 0 && (
-          <div className="absolute z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg">
+          <div className="absolute z-10 mt-2 w-full bg-white border border-gray-300 rounded-lg shadow-lg max-h-[400px] overflow-y-auto custom-scrollbar">
             <ul>
               {results.map((result) => (
-                <li
+                <Link
                   key={result.id}
-                  className="p-2 border-b border-gray-200 hover:bg-gray-100"
+                  href={`/productDetail/${result.id}`}
+                  passHref
                 >
-                  {result.title}
-                </li>
+                  <li
+                    className="p-2 border-b flex items-center gap-5 border-gray-200 hover:bg-gray-100 cursor-pointer"
+                    onClick={handleResultClick} // Reset search and close box on click
+                  >
+                    <img
+                      className="w-14 h-14"
+                      src={result.img}
+                      alt={result.title}
+                    />
+                    <p>{result.title}</p>
+                  </li>
+                </Link>
               ))}
             </ul>
           </div>

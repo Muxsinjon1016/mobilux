@@ -24,7 +24,6 @@ export const Header = () => {
           src="/logo.svg"
           alt="logo"
         />
-      
         <div className="flex items-center gap-3 lg:gap-6">
           <Search />
           <div className="flex items-center gap-5">

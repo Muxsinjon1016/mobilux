@@ -4,6 +4,8 @@ import { MdOutlineAddShoppingCart } from "react-icons/md";
 import { getProductDetail } from "@/services/query/getCategories";
 import Image from "next/image";
 import { FaArrowLeftLong } from "react-icons/fa6";
+import CartButton from "@/components/sections/cartButton";
+import CartComponent from "@/components/sections/cart";
 
 interface CatalogProps {
   params: { id: any; brand: string };
@@ -14,6 +16,9 @@ const productDetails: NextPage<CatalogProps> = async ({ params }) => {
 
   return (
     <>
+      <div className="fixed right-0 top-72 z-50">
+        <CartButton />
+      </div>
       <div className="bg-white rounded-3xl mt-[100px] lg:mt-[120px]">
         <div className="my-[100px]">
           <div>
@@ -58,13 +63,10 @@ const productDetails: NextPage<CatalogProps> = async ({ params }) => {
                   <p className="text-3xl lg:text-5xl font-extrabold mb-5">
                     {item.price}
                   </p>
-                  <Button
-                    className="mx-auto mb-4 w-[100%] sm:text-lg flex items-center gap-2 text-center  my-2px"
-                    variant={"destructive"}
-                  >
-                    <MdOutlineAddShoppingCart />
-                    Savatcha
-                  </Button>
+                  <CartComponent
+                    productId={String(item.id)}
+                    imageUrls={item.img ? [item.img] : []}
+                  />
                   <div>
                     <p className="text-xl block lg:hidden font-bold mb-2">
                       Colors
@@ -140,82 +142,82 @@ const productDetails: NextPage<CatalogProps> = async ({ params }) => {
                 <>
                   <li key={item.id}>
                     {item.brand && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Brand</p>
                         <p className="truncate">{item.brand}</p>
-                      </li>
+                      </div>
                     )}
                     {item.title && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Title</p>
                         <p className="truncate">{item.title}</p>
-                      </li>
+                      </div>
                     )}
                     {item.rame && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Rame</p>
                         <p className="truncate">{item.rame}</p>
-                      </li>
+                      </div>
                     )}
                     {item.color && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Color</p>
                         <p className="truncate">{item.color}</p>
-                      </li>
+                      </div>
                     )}
                     {item.ram && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Ram</p>
                         <p className="truncate">{item.ram}</p>
-                      </li>
+                      </div>
                     )}
                     {item.geForce && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">GeForce</p>
                         <p className="truncate">{item.geForce}</p>
-                      </li>
+                      </div>
                     )}
                     {item.core && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Core</p>
                         <p className="truncate">{item.core}</p>
-                      </li>
+                      </div>
                     )}
                     {item.display && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Display</p>
                         <p className="truncate">{item.display}</p>
-                      </li>
+                      </div>
                     )}
                     {item.memory && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Memory</p>
                         <p className="truncate">{item.memory}</p>
-                      </li>
+                      </div>
                     )}
                     {item.weight && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Weight</p>
                         <p className="truncate">{item.weight}</p>
-                      </li>
+                      </div>
                     )}
                     {item.details?.display && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Display</p>
                         <p className="truncate">{item.details?.display}</p>
-                      </li>
+                      </div>
                     )}
                     {item.details?.frequency && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Frequency</p>
                         <p className="truncate">{item.details?.frequency}</p>
-                      </li>
+                      </div>
                     )}
                     {item.details?.weight && (
-                      <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
+                      <div className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">
                         <p className="text-sm lg:text-xl">Weight</p>
                         <p className="truncate">{item.details?.weight}</p>
-                      </li>
+                      </div>
                     )}
                     {item.details?.security && (
                       <li className="flex items-center justify-between my-1 py-2 border-b-4 border-dotted border-black gap-10">

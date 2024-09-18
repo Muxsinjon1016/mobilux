@@ -12,13 +12,18 @@ import { add, decrement, setCount, clearCount } from "@/redux/cartSlice";
 interface CartItem {
   id: string;
   count: number;
+  imageUrls: string[];
 }
 
 interface CartComponentProps {
   productId: string;
+  imageUrls: string[];
 }
 
-export const CartComponent: React.FC<CartComponentProps> = ({ productId }) => {
+export const CartComponent: React.FC<CartComponentProps> = ({
+  productId,
+  imageUrls,
+}) => {
   const dispatch: AppDispatch = useDispatch();
   const count = useSelector(
     (state: RootState) => state.counter[productId]?.count || 0
@@ -43,14 +48,14 @@ export const CartComponent: React.FC<CartComponentProps> = ({ productId }) => {
   const incrementCount = () => {
     const newCount = count + 1;
     dispatch(add({ id: productId }));
-    saveState(productId, { id: productId, count: newCount });
+    saveState(productId, { id: productId, count: newCount, imageUrls });
   };
 
   const decrementCount = () => {
     const newCount = count > 1 ? count - 1 : 0;
     if (newCount > 0) {
       dispatch(decrement({ id: productId }));
-      saveState(productId, { id: productId, count: newCount });
+      saveState(productId, { id: productId, count: newCount, imageUrls });
     } else {
       localStorage.removeItem(productId);
       dispatch(clearCount({ id: productId }));
@@ -91,7 +96,7 @@ export const CartComponent: React.FC<CartComponentProps> = ({ productId }) => {
         </div>
       )}
     </>
-  );
+  )
 };
 
 export default CartComponent;

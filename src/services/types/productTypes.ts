@@ -1,10 +1,12 @@
 export interface productTypes {
   img?: string;
+  count?: any;
   title?: string;
   rame?: any;
   name?: string;
   brand?: string;
   price?: string;
+  imageUrls?: any;
   color?: string;
   ram?: string;
   geForce?: string;

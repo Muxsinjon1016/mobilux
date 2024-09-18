@@ -1,7 +1,7 @@
 import React from "react";
 
-export const Cart = () => {
-  return <div></div>;
+export const CartComponent = () => {
+  return <div className="mt-[400px]">cart page</div>;
 };
 
-export default Cart;
+export default CartComponent;

@@ -12,18 +12,21 @@ import { FaCircleUser } from "react-icons/fa6";
 import { Button } from "@/components/ui/button";
 import { Search } from "@/components/sections/search";
 import Image from "next/image";
+import Link from "next/link";
 
 export const Header = () => {
   return (
     <>
       <div className="container py-4 md:py-6 flex items-center justify-between gap-5">
-        <Image
-          className="w-[100px] cursor-pointer lg:w-[116px]"
-          width={100}
-          height={28}
-          src="/logo.svg"
-          alt="logo"
-        />
+        <Link href={"/"}>
+          <Image
+            className="w-[100px] cursor-pointer lg:w-[116px]"
+            width={100}
+            height={28}
+            src="/logo.svg"
+            alt="logo"
+          />
+        </Link>
         <div className="flex items-center gap-3 lg:gap-6">
           <Search />
           <div className="flex items-center gap-5">
